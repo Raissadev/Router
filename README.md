@@ -12,9 +12,7 @@ This is a simple route system.
 
 ```php
 <?php
-// Class definitions in controllers
-namespace Raissadev\Routes\Controllers;
-
+// Class definitions
 class ExampleClass
 {
     public function A(): void
@@ -37,16 +35,19 @@ class ExampleClass
         var_dump($params);
     }
 }
-// Route usage
+
+// Route Usage
 use Raissadev\Routes\Route\Router;
 
 $route = new Router;
-$route->setNamespace("Raissadev\Routes\Controllers");
+
+$route->setNamespace("");
 
 $route->get("/", "ExampleClass@A");
 $route->get("/example-b", "ExampleClass@B");
 $route->get("/example/{id}", "ExampleClass@intB");
 $route->post("/request", "ExampleClass@requestExample");
+
 
 ```
 
