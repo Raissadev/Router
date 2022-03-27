@@ -6,7 +6,7 @@ This project was built for educational purposes, therefore it should **NOT** run
 
 ## Description
 
-This is a simple route system.
+Speak devs! I'm bringing here a simple system of routes for you to use in your projects, and even use as a base for studies.
 
 ## Usage
 
