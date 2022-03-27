@@ -6,12 +6,12 @@ class ExampleClass
 {
     public function A(): void
     {
-        echo 'Is page A';
+        echo 'This is page (A)';
     }
 
     public function B(): void
     {
-        echo 'Is page B';
+        echo 'This is page (B)';
     }
 
     public function intB(int $id): void

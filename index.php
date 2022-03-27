@@ -10,6 +10,6 @@ $route = new Router;
 $route->setNamespace("Raissadev\Routes\Controllers");
 
 $route->get("/", "ExampleClass@A");
-$route->get("/product", "ExampleClass@B");
-$route->get("/product/{id}", "ExampleClass@intB");
+$route->get("/example-b", "ExampleClass@B");
+$route->get("/example/{id}", "ExampleClass@intB");
 $route->post("/request", "ExampleClass@requestExample");

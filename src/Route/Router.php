@@ -40,5 +40,4 @@ class Router
         return $this->getInstance();
 	}
 
-
 }
