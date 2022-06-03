@@ -21,7 +21,8 @@ $ composer install
 ```
 
 #### Parameters
-- Parameter "relationships" parameter used to get the object relationships we are requesting.
+- Parameter "relationships" used to get the object relationships we are requesting.
+- Parameter "examples_reference" used to take objects that already exist and relate to the created object.
 
 ## CRUD's Examples
 
@@ -92,18 +93,71 @@ $ composer install
 }
 ```
 
-### With some proxy
-```php
-<?php
-use CViniciusSDias\GoogleCrawler\{
-    Crawler, SearchTerm, Proxy\CommonProxy
-};
-
-$searchTerm = new SearchTerm('Test');
-$commonProxy = new CommonProxy('https://us.hideproxy.me/includes/process.php?action=update');
-$crawler = new Crawler($searchTerm, $commonProxy);
-
-$resultList = $crawler->getResults();
+### Parameters for Formation JSON (POST)
+```json
+{
+    "name": "CCR",
+    "cnpj": "12.594.672/0001-51",
+    "number_of_employees": 20,
+    "segment": "Technology",
+    "main_language": "pt-br",
+    "address": {
+        "zip_code": "12345-789",
+        "public_place": "Public place",
+        "number": "20",
+        "district": "District",
+        "city": "City",
+        "state": "XX",
+        "country": "Brasil",
+        "complement": null
+    },
+    "certificate_properties": {
+        "digital_signature": "Signature",
+        "certified_data": "Certified",
+        "logo": "example.png"
+    },
+    "contacts": [
+        {
+            "name": "Consultant",
+            "email": "email@email.com",
+            "phone": "",
+            "cell_phone": "11 11111-1111"
+        },
+	{
+            "name": "Example",
+            "email": "example@email.com",
+            "phone": "",
+            "cell_phone": "11 11111-1111"
+        }
+    ],
+    "design_properties": {
+        "logo_for_white_background": "white.png",
+        "logo_for_black_background": "black.jpg",
+        "text_color": "black",
+        "primary_color": "blue",
+        "secondary_color": "black"
+    },
+    "login_properties": {
+        "type": "cpf",
+        "mask": "000.000.000-00",
+        "min_characters": "11",
+        "max_characters": "15",
+        "sso_credentials_microsoft": null
+    },
+    "notification_settings": {
+        "email": true,
+        "smtp_host": "1213121",
+        "smtp_login": "1321321",
+        "smtp_password": "1321321",
+        "sms": false,
+        "whatsapp": false
+    },
+    "content_type": [
+        {
+	   "content_type_id": 1
+	},
+    ]
+}
 ```
 
 #### More details on proxies
