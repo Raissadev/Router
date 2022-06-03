@@ -15,12 +15,9 @@ $ composer install
 
 ## Usage
 
-### Crawler class constructor prototype
+### Class constructor prototype
 ```
-CViniciusSDias\GoogleCrawler\Crawler::__construct(
-    SearchTermInterface $searchTerm, GoogleProxyInterface $proxy = null,
-    string $googleDomain = 'google.com', string $countryCode = ''
-)
+
 ```
 
 #### Parameters
@@ -28,18 +25,18 @@ CViniciusSDias\GoogleCrawler\Crawler::__construct(
 
 ## CRUD's Examples
 
-### Parameters for Organization JSON
+### Parameters for Organization JSON (POST)
 ```json
 {
-    "name": "Org",
+    "name": "CCR",
     "cnpj": "12.594.672/0001-51",
-    "number_of_employees": 123,
-    "segment": "Tech",
-    "main_language": "portuguese",
+    "number_of_employees": 20,
+    "segment": "Technology",
+    "main_language": "pt-br",
     "address": {
         "zip_code": "12345-789",
         "public_place": "Public place",
-        "number": "17",
+        "number": "20",
         "district": "District",
         "city": "City",
         "state": "XX",
@@ -47,37 +44,36 @@ CViniciusSDias\GoogleCrawler\Crawler::__construct(
         "complement": null
     },
     "certificate_properties": {
-				"id": 1,
-        "digital_signature": "true certi",
-        "certified_data": "truee",
-        "logo": "asd"
+        "digital_signature": "Signature",
+        "certified_data": "Certified",
+        "logo": "example.png"
     },
     "contacts": [
         {
-            "name": "Consultor",
+            "name": "Consultant",
             "email": "email@email.com",
             "phone": "",
             "cell_phone": "11 11111-1111"
         },
-			 	{
-            "name": "New",
-            "email": "email@email.com",
+	{
+            "name": "Example",
+            "email": "example@email.com",
             "phone": "",
             "cell_phone": "11 11111-1111"
         }
     ],
     "design_properties": {
-        "logo_for_white_background": "asd.png",
-        "logo_for_black_background": "asd.jpg",
+        "logo_for_white_background": "white.png",
+        "logo_for_black_background": "black.jpg",
         "text_color": "black",
-        "primary_color": "black",
+        "primary_color": "blue",
         "secondary_color": "black"
     },
     "login_properties": {
         "type": "cpf",
         "mask": "000.000.000-00",
         "min_characters": "11",
-        "max_characters": "14",
+        "max_characters": "15",
         "sso_credentials_microsoft": null
     },
     "notification_settings": {
@@ -89,12 +85,9 @@ CViniciusSDias\GoogleCrawler\Crawler::__construct(
         "whatsapp": false
     },
     "content_type": [
-			{
-				"content_type_id": 1
-			},
-			{
-				"content_type_id": 2
-			}
+        {
+	   "content_type_id": 1
+	},
     ]
 }
 ```
