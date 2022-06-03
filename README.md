@@ -1,58 +1,86 @@
-# Router
+# Lean Learn
 
-## :stop_sign: Attention!
+Simples documentação sobre o software.
 
-This project was built for educational purposes, therefore it should **NOT** run in production environments.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pulvinar, erat non accumsan iaculis.
 
-## Description
+Vivamus ultricies sollicitudin purus id varius. Praesent congue justo ac tempor laoreet,
+aenean et leo ut sapien pellentesque iaculis. In varius sagittis dignissim.
 
-Speak devs! I'm bringing here a simple system of routes for you to use in your projects, and even use as a base for studies.
+## Installation
+Install the latest version with
+```
+$ composer install
+```
 
 ## Usage
 
-```php
-<?php
-// Class definitions
-class ExampleClass
-{
-    public function A(): void
-    {
-        echo 'This is page (A)';
-    }
-
-    public function B(): void
-    {
-        echo 'This is page (B)';
-    }
-
-    public function intB(int $id): void
-    {
-        echo $id;
-    }
-
-    public function requestExample($params): void
-    {
-        var_dump($params);
-    }
-}
-
-// Route Usage
-use Raissadev\Routes\Route\Router;
-
-$route = new Router;
-
-$route->setNamespace("");
-
-$route->get("/", "ExampleClass@A");
-$route->get("/example-b", "ExampleClass@B");
-$route->get("/example/{id}", "ExampleClass@intB");
-$route->post("/request", "ExampleClass@requestExample");
-
-
+### Crawler class constructor prototype
+```
+CViniciusSDias\GoogleCrawler\Crawler::__construct(
+    SearchTermInterface $searchTerm, GoogleProxyInterface $proxy = null,
+    string $googleDomain = 'google.com', string $countryCode = ''
+)
 ```
 
-## Author
-Raissa Daros - raissa.fullstack@gmail.com - https://github.com/Raissadev/
+#### Parameters
+- $searchTerm Term that will be searched on Google
+- $proxy Online proxy service that will be used to access Google [optional]
+- $googleDomain Your country specific google domain, like google.de, google.com.br, etc. [optional]
+- $countryCode Country code that will be added to `gl` parameter on Google's url, indicating the location of the search. E.g. 'BR', 'US', 'DE' [optional]
 
-## License
-This component is licensed under the GPL License
+## Examples
+
+### Without proxy
+```php
+<?php
+use CViniciusSDias\GoogleCrawler\{
+    Crawler, SearchTerm
+};
+
+$searchTerm = new SearchTerm('Test');
+$crawler = new Crawler($searchTerm); // or new Crawler($searchTerm, new NoProxy());
+
+$resultList = $crawler->getResults();
+```
+
+### With some proxy
+```php
+<?php
+use CViniciusSDias\GoogleCrawler\{
+    Crawler, SearchTerm, Proxy\CommonProxy
+};
+
+$searchTerm = new SearchTerm('Test');
+$commonProxy = new CommonProxy('https://us.hideproxy.me/includes/process.php?action=update');
+$crawler = new Crawler($searchTerm, $commonProxy);
+
+$resultList = $crawler->getResults();
+```
+
+#### More details on proxies
+To know more details about which proxies are currently
+supported, see the files inside `tests/Functional` folder.
+There you'll see all the available proxies.
+
+### Iterating over results
+```php
+foreach ($resultList as $result) {
+    $title = $result->getTitle();
+    $url = $result->getUrl();
+    $description = $result->getDescription();
+}
+```
+
+## About
+
+### Requirements
+
+- This component works with PHP 7.2 or above
+- This component requires the extension [php-ds](http://php.net/manual/pt_BR/book.ds.php) to be installed
+
+### Author
+Vinicius Dias (ZCE) - carlosv775@gmail.com - https://github.com/CViniciusSDias/ - http://www.zend.com/en/yellow-pages/ZEND030134
+
+### License
+This component is licensed under the GPL v3.0 License - see the `LICENSE` file for details
