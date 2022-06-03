@@ -1,6 +1,6 @@
 # Lean Learn
 
-Simples documentação sobre o software.
+Simple documentation about the software.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pulvinar, erat non accumsan iaculis.
 
@@ -24,24 +24,79 @@ CViniciusSDias\GoogleCrawler\Crawler::__construct(
 ```
 
 #### Parameters
-- $searchTerm Term that will be searched on Google
-- $proxy Online proxy service that will be used to access Google [optional]
-- $googleDomain Your country specific google domain, like google.de, google.com.br, etc. [optional]
-- $countryCode Country code that will be added to `gl` parameter on Google's url, indicating the location of the search. E.g. 'BR', 'US', 'DE' [optional]
+- Parameter "relationships" parameter used to get the object relationships we are requesting.
 
-## Examples
+## CRUD's Examples
 
-### Without proxy
-```php
-<?php
-use CViniciusSDias\GoogleCrawler\{
-    Crawler, SearchTerm
-};
-
-$searchTerm = new SearchTerm('Test');
-$crawler = new Crawler($searchTerm); // or new Crawler($searchTerm, new NoProxy());
-
-$resultList = $crawler->getResults();
+### Parameters for Organization JSON
+```json
+{
+    "name": "Org",
+    "cnpj": "12.594.672/0001-51",
+    "number_of_employees": 123,
+    "segment": "Tech",
+    "main_language": "portuguese",
+    "address": {
+        "zip_code": "12345-789",
+        "public_place": "Public place",
+        "number": "17",
+        "district": "District",
+        "city": "City",
+        "state": "XX",
+        "country": "Brasil",
+        "complement": null
+    },
+    "certificate_properties": {
+				"id": 1,
+        "digital_signature": "true certi",
+        "certified_data": "truee",
+        "logo": "asd"
+    },
+    "contacts": [
+        {
+            "name": "Consultor",
+            "email": "email@email.com",
+            "phone": "",
+            "cell_phone": "11 11111-1111"
+        },
+			 	{
+            "name": "New",
+            "email": "email@email.com",
+            "phone": "",
+            "cell_phone": "11 11111-1111"
+        }
+    ],
+    "design_properties": {
+        "logo_for_white_background": "asd.png",
+        "logo_for_black_background": "asd.jpg",
+        "text_color": "black",
+        "primary_color": "black",
+        "secondary_color": "black"
+    },
+    "login_properties": {
+        "type": "cpf",
+        "mask": "000.000.000-00",
+        "min_characters": "11",
+        "max_characters": "14",
+        "sso_credentials_microsoft": null
+    },
+    "notification_settings": {
+        "email": true,
+        "smtp_host": "1213121",
+        "smtp_login": "1321321",
+        "smtp_password": "1321321",
+        "sms": false,
+        "whatsapp": false
+    },
+    "content_type": [
+			{
+				"content_type_id": 1
+			},
+			{
+				"content_type_id": 2
+			}
+    ]
+}
 ```
 
 ### With some proxy
